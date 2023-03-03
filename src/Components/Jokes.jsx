@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import SingleJoke from "./SingleJoke";
+import SetupJoke from "./SetupJoke";
 
 function Jokes(){
 
@@ -13,8 +15,13 @@ function Jokes(){
     }, [])
 
     return (
-
-        <div>{jokes === null ? <div>Loading...</div> :  console.log(jokes)}</div>
+        <>
+        <div className="jk-bin">
+            {
+            jokes === null ? <div>Loading...</div> :  jokes.map((j,i) => j.type === 'single' ? <SingleJoke key={j.id} jk={j} index={i}/> : <SetupJoke key={j.id} jk={j} index={i}/>)
+            }
+        </div>
+        </>
     )
 }
 
