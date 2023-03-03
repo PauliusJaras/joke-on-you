@@ -16,6 +16,7 @@ function Jokes(){
 
     return (
         <>
+        <h1>Programming Jokes</h1>
         <div className="jk-bin">
             {
             jokes === null ? <div>Loading...</div> :  jokes.map((j,i) => j.type === 'single' ? <SingleJoke key={j.id} jk={j} index={i}/> : <SetupJoke key={j.id} jk={j} index={i}/>)
